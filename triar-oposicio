@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tria la teva oposició · Acadèmia Codi APTE</title>
+
+<style>
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background:#0b1220;
+color:white;
+text-align:center;
+}
+
+.container{
+padding-top:120px;
+max-width:1000px;
+margin:auto;
+}
+
+h1{
+font-size:42px;
+letter-spacing:1px;
+margin-bottom:15px;
+}
+
+p{
+color:#cbd5e1;
+margin-bottom:60px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr;
+gap:30px;
+padding:0 20px;
+}
+
+@media(min-width:800px){
+.grid{
+grid-template-columns:1fr 1fr;
+}
+}
+
+.card{
+background:rgba(15,26,48,0.7);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
+padding:40px 20px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:rgba(30,58,138,0.3);
+}
+
+.card h2{
+font-size:24px;
+margin-bottom:15px;
+}
+
+.card p{
+font-size:15px;
+color:#cbd5e1;
+margin-bottom:25px;
+}
+
+.button{
+display:inline-block;
+padding:12px 22px;
+background:#1e3a8a;
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+}
+
+.button:hover{
+background:#2747a8;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<h1>Tria la teva oposició</h1>
+<p>Selecciona la preparació que vols començar.</p>
+
+<div class="grid">
+
+<div class="card">
+<h2>Mossos d'Esquadra</h2>
+<p>Temari oficial, esquemes, bateries de preguntes i simulacres reals.</p>
+<a href="mossos.html" class="button">Entrar</a>
+</div>
+
+<div class="card">
+<h2>Policia Local Santa Coloma</h2>
+<p>Preparació específica per convocatòries municipals.</p>
+<a href="policia-local.html" class="button">Entrar</a>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
