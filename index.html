@@ -1,72 +1,306 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Acadèmia Codi APTE</title>
+
   <style>
-    body {
-      margin: 0;
+    :root{
+      --bg:#0b1220;
+      --panel: rgba(15, 26, 48, 0.72);
+      --line: rgba(148,163,184,0.18);
+      --text:#ffffff;
+      --muted:#cbd5e1;
+      --muted2:#94a3b8;
+      --btn:#1e3a8a;
+      --btnHover:#2747a8;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
       font-family: Arial, sans-serif;
-      background-color: #0f172a;
-      color: white;
-      text-align: center;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    header {
-      padding: 60px 20px;
-      background-color: #111827;
+    /* NAV */
+    nav{
+      position: fixed;
+      top:0; left:0; right:0;
+      z-index: 10;
+      background: rgba(0,0,0,0.28);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
     }
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    h1 {
-      font-size: 48px;
-      margin: 0;
+    .nav-inner{
+      height: 64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
     }
-
-    p {
-      font-size: 20px;
-      margin-top: 20px;
-      color: #cbd5e1;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
-      background-color: #1e3a8a;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 60px 20px;
-    }
-
-    footer {
-      padding: 20px;
-      background-color: #111827;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
       font-size: 14px;
-      color: #94a3b8;
+      white-space: nowrap;
+    }
+    .brand-badge{
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.14);
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(17,24,39,0.35);
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .links a{
+      color: rgba(203,213,225,0.92);
+      text-decoration:none;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .links a:hover{
+      background: rgba(255,255,255,0.10);
+      color: var(--text);
+    }
+
+    /* HERO */
+    .hero{
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.52) 45%, rgba(0,0,0,0.72) 100%),
+        url("hero.png") center/cover no-repeat;
+      padding-top: 64px; /* nav space */
+    }
+
+    /* subtle police lights overlay */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(700px 380px at 20% 40%, rgba(30,58,138,0.35), transparent 60%),
+        radial-gradient(700px 380px at 80% 40%, rgba(220,38,38,0.30), transparent 60%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+    }
+
+    .hero-inner{
+      position: relative;
+      max-width: 980px;
+      padding: 40px 20px;
+    }
+
+    .kicker{
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: rgba(203,213,225,0.85);
+      margin-bottom: 14px;
+    }
+
+    h1{
+      margin: 0;
+      font-size: 56px;
+      line-height: 1.05;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .sub{
+      margin: 18px auto 0;
+      max-width: 760px;
+      color: rgba(203,213,225,0.92);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .sub small{
+      display:block;
+      margin-top: 10px;
+      color: rgba(148,163,184,0.95);
+      font-size: 15px;
+    }
+
+    .cta{
+      margin-top: 26px;
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: var(--btn);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .btn:hover{ background: var(--btnHover); }
+
+    .btn.secondary{
+      background: rgba(0,0,0,0.28);
+      border: 1px solid rgba(203,213,225,0.22);
+    }
+    .btn.secondary:hover{
+      background: rgba(255,255,255,0.10);
+    }
+
+    /* SECTION BELOW HERO */
+    .below{
+      padding: 60px 0 80px;
+      background: linear-gradient(180deg, rgba(11,18,32,1) 0%, rgba(8,13,24,1) 100%);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: left;
+    }
+
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .card p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .card .mini{
+      color: rgba(148,163,184,0.95);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .card .card-btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(30,58,138,0.92);
+      color: white;
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    .card .card-btn:hover{
+      background: rgba(39,71,168,0.96);
+    }
+
+    @media (min-width: 860px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+      h1{ font-size: 64px; }
+    }
+
+    footer{
+      text-align:center;
+      color: rgba(148,163,184,0.95);
+      font-size: 13px;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(8,13,24,1);
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>ACADÈMIA CODI APTE</h1>
-  <p>Preparació rigorosa per a oposicions policials a Catalunya</p>
-  <a class="btn" href="#">Comença ara</a>
-</header>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-badge">APTE</span>
+      Acadèmia Codi APTE
+    </a>
+    <div class="links">
+      <a href="#inici">Inici</a>
+      <a href="mossos.html">Mossos</a>
+      <a href="policia-local.html">Policia Local</a>
+      <a href="simulacres.html">Simulacres</a>
+    </div>
+  </div>
+</nav>
 
-<section>
-  <h2>Mossos d'Esquadra</h2>
-  <p>Temari oficial, preguntes per tema i simulacres reals.</p>
+<section class="hero" id="inici">
+  <div class="hero-inner">
+    <div class="kicker">Sistema de preparació policial</div>
+
+    <h1>Nascut per opositar.<br>Preparat per aprovar.</h1>
+
+    <div class="sub">
+      Preparació rigorosa per a oposicions policials a Catalunya.
+      <small>Temari oficial · Simulacres reals · Estratègia d’examen</small>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="mossos.html">Comença ara</a>
+      <a class="btn secondary" href="simulacres.html">Veure simulacres</a>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Policia Local</h2>
-  <p>Preparació específica per convocatòries municipals.</p>
+<section class="below">
+  <div class="wrap">
+    <div class="kicker" style="margin:0; text-align:left;">Accés ràpid</div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Mossos d'Esquadra</h2>
+        <div class="mini">Temari · Resums · Esquemes · Bateries de preguntes</div>
+        <p>Preparació completa i ordenada per temes, amb pràctica enfocada a examen.</p>
+        <a class="card-btn" href="mossos.html">Entrar</a>
+      </div>
+
+      <div class="card">
+        <h2>Policia Local</h2>
+        <div class="mini">Convocatòries municipals (inici: Santa Coloma)</div>
+        <p>Material específic i pràctica per oposicions locals, amb estructura clara.</p>
+        <a class="card-btn" href="policia-local.html">Entrar</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
