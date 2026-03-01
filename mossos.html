@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mossos d'Esquadra · Acadèmia Codi APTE</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel: rgba(15, 26, 48, 0.72);
+      --line: rgba(148,163,184,0.18);
+      --text:#ffffff;
+      --muted:#cbd5e1;
+      --muted2:#94a3b8;
+      --btn:#1e3a8a;
+      --btnHover:#2747a8;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* NAV (igual que home) */
+    nav{
+      position: fixed;
+      top:0; left:0; right:0;
+      z-index: 10;
+      background: rgba(0,0,0,0.28);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+    }
+    .nav-inner{
+      height: 64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .brand-badge{
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.14);
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(17,24,39,0.35);
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .links a{
+      color: rgba(203,213,225,0.92);
+      text-decoration:none;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .links a:hover{
+      background: rgba(255,255,255,0.10);
+      color: var(--text);
+    }
+
+    /* HEADER */
+    header{
+      padding-top: 88px; /* nav space */
+      padding-bottom: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before{
+      content:"";
+      position:absolute;
+      inset:-120px -40px auto -40px;
+      height: 280px;
+      background:
+        radial-gradient(700px 380px at 25% 40%, rgba(30,58,138,0.35), transparent 60%),
+        radial-gradient(700px 380px at 75% 40%, rgba(220,38,38,0.22), transparent 60%);
+      pointer-events:none;
+    }
+    .head-inner{ position: relative; }
+    .kicker{
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(203,213,225,0.85);
+      margin-bottom: 10px;
+    }
+    h1{
+      margin:0;
+      font-size: 40px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .sub{
+      margin-top: 12px;
+      color: rgba(203,213,225,0.92);
+      max-width: 820px;
+      line-height: 1.5;
+    }
+
+    /* TOOLBAR */
+    .toolbar{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .search{
+      flex: 1;
+      min-width: 220px;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(203,213,225,0.18);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: var(--text);
+      outline: none;
+    }
+    .search::placeholder{ color: rgba(148,163,184,0.85); }
+
+    .btn{
+      display:inline-block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--btn);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .btn:hover{ background: var(--btnHover); }
+
+    .btn.secondary{
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(203,213,225,0.22);
+    }
+    .btn.secondary:hover{ background: rgba(255,255,255,0.10); }
+
+    /* GRID */
+    .section{
+      padding: 18px 0 70px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(11,18,32,1) 0%, rgba(8,13,24,1) 100%);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (min-width: 900px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tag{
+      display:inline-block;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(203,213,225,0.9);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 6px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .card h2{
+      margin:0;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    .card p{
+      margin:0;
+      color: rgba(203,213,225,0.92);
+      line-height: 1.5;
+    }
+    .actions{
+      margin-top: 6px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .mini{
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(30,58,138,0.88);
+    }
+    .mini:hover{ background: rgba(39,71,168,0.95); }
+
+    .mini.secondary{
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(203,213,225,0.20);
+      color: rgba(255,255,255,0.95);
+    }
+    .mini.secondary:hover{ background: rgba(255,255,255,0.10); }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      color: rgba(148,163,184,0.95);
+      font-size: 13px;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(8,13,24,1);
+    }
+
+    /* Simple “filter” (visual only) */
+    .note{
+      margin-top: 10px;
+      color: rgba(148,163,184,0.95);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-badge">APTE</span>
+      Acadèmia Codi APTE
+    </a>
+    <div class="links">
+      <a href="index.html">Inici</a>
+      <a href="mossos.html">Mossos</a>
+      <a href="policia-local.html">Policia Local</a>
+      <a href="simulacres.html">Simulacres</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap head-inner">
+    <div class="kicker">Mossos d'Esquadra</div>
+    <h1>Temari i pràctica per tema</h1>
+    <div class="sub">
+      Resums, esquemes, idees clau i bateries de preguntes. Preparat perquè puguis estudiar i practicar amb ordre.
+    </div>
+
+    <div class="toolbar">
+      <input class="search" type="text" placeholder="Cerca un tema (ex: Constitució, Seguretat, Drets...)" disabled>
+      <a class="btn" href="simulacres.html">Simulacres</a>
+      <a class="btn secondary" href="#temes">Veure temes</a>
+    </div>
+
+    <div class="note">*El cercador s'activarà quan comencem a afegir temes i contingut.</div>
+  </div>
+</header>
+
+<section class="section" id="temes">
+  <div class="wrap">
+    <div class="kicker" style="margin-bottom:6px;">Temes</div>
+    <div class="sub" style="margin-top:0;">Comença amb pocs temes però impecables. Afegeix progressivament.</div>
+
+    <div class="grid">
+
+      <div class="card">
+        <span class="tag">Tema 01</span>
+        <h2>Constitució Espanyola i estructura de l'Estat</h2>
+        <p>Conceptes clau, drets fonamentals, organització territorial i institucions.</p>
+        <div class="actions">
+          <a class="mini" href="#">Resum</a>
+          <a class="mini secondary" href="#">Esquema</a>
+          <a class="mini secondary" href="#">Preguntes</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Tema 02</span>
+        <h2>Estatut d'Autonomia de Catalunya i institucions</h2>
+        <p>Competències, institucions catalanes i marc normatiu bàsic.</p>
+        <div class="actions">
+          <a class="mini" href="#">Resum</a>
+          <a class="mini secondary" href="#">Esquema</a>
+          <a class="mini secondary" href="#">Preguntes</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Tema 03</span>
+        <h2>Seguretat pública i marc policial a Catalunya</h2>
+        <p>Model de seguretat, coordinació i funcions essencials.</p>
+        <div class="actions">
+          <a class="mini" href="#">Resum</a>
+          <a class="mini secondary" href="#">Esquema</a>
+          <a class="mini secondary" href="#">Preguntes</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Tema 04</span>
+        <h2>Règim jurídic bàsic i procediment administratiu</h2>
+        <p>Principis, actes administratius i procediment: base per a molts supòsits.</p>
+        <div class="actions">
+          <a class="mini" href="#">Resum</a>
+          <a class="mini secondary" href="#">Esquema</a>
+          <a class="mini secondary" href="#">Preguntes</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Acadèmia Codi APTE
+</footer>
+
+</body>
+</html>
