@@ -256,21 +256,44 @@
   gap:20px;
   flex-wrap:wrap;
 }
-
 .btn-back{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:52px;
+  height:52px;
+  font-size:24px;
+  font-weight:600;
   text-decoration:none;
   color:#ffffff;
-  border:1px solid rgba(255,255,255,0.2);
-  padding:8px 14px;
-  border-radius:12px;
-  font-size:14px;
-  transition: all 0.2s ease;
-  background: rgba(255,255,255,0.05);
+
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:14px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.03)
+  );
+
+  backdrop-filter: blur(6px);
+  box-shadow:
+  0 4px 12px rgba(0,0,0,0.4),
+  0 0 12px rgba(30,138,255,0.25),
+  inset 0 1px 0 rgba(255,255,255,0.15);
+  transition: all 0.25s ease;
 }
 
 .btn-back:hover{
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-2px);
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.05)
+  );
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.25);
 }
   </style>
 </head>
@@ -296,7 +319,7 @@
   <div class="wrap head-inner">
     <div class="kicker">Mossos d'Esquadra</div>
     <div class="header-temari">
-  <a href="triar-oposicio.html" class="btn-back">← Tornar</a>
+  <a href="triar-oposicio.html" class="btn-back">←</a>
   <h1>TEMARI I PRÀCTICA PER TEMES</h1>
 </div>
     <div class="sub">
