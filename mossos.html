@@ -391,6 +391,24 @@ summary.bloc-summary::-webkit-details-marker{
   gap:10px;
   margin-left:auto;
 }
+/* ===== INFORMACIÓ OFICIAL (CTA a mossos.html) ===== */
+.info-cta{
+  display:flex;
+  justify-content:center;
+  margin-top: 18px;
+}
+
+.info-cta .btn{
+  min-width: 420px;
+  max-width: 560px;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 560px){
+  .info-cta .btn{
+    min-width: auto;
+  }
   </style>
 </head>
 
@@ -697,7 +715,17 @@ summary.bloc-summary::-webkit-details-marker{
     </div>
   </div>
 </section>
+<section class="section" id="info-oficial">
+  <div class="wrap">
+    <div class="kicker" style="margin-bottom:10px;">INFORMACIÓ OFICIAL</div>
 
+    <div class="info-cta">
+      <a class="btn" href="informacio-oficial.html">
+        CONSULTA LA INFORMACIÓ OFICIAL
+      </a>
+    </div>
+  </div>
+</section>
 <footer>
   © 2026 Acadèmia Codi APTE
 </footer>
