@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Mossos d'Esquadra · Acadèmia Codi APTE</title>
+  <title>Informació Oficial · Acadèmia Codi APTE</title>
 
 .brand{
   display:flex;
@@ -27,7 +27,6 @@
 .brand-accent{
   color: var(--btn);
 }
-  <style>
     :root{
       --bg:#0b1220;
       --panel: rgba(15, 26, 48, 0.72);
@@ -371,6 +370,79 @@ summary.bloc-summary::-webkit-details-marker{
   border: 1px solid rgba(255,255,255,0.2);
   background: rgba(0,0,0,0.25);
   color: rgba(255,255,255,0.9);
+}/* ===== INFORMACIÓ OFICIAL ===== */
+
+.section-title{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:40px;
+  letter-spacing:1px;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.info-card{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:30px;
+  backdrop-filter: blur(8px);
+}
+
+.info-card-top{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:15px;
+}
+
+.info-icon{
+  font-size:26px;
+}
+
+.info-card h3{
+  margin:0;
+  font-size:20px;
+}
+
+.info-card p{
+  color:var(--muted);
+  margin-bottom:20px;
+}
+
+.previous{
+  margin-top:20px;
+}
+
+.previous h4{
+  margin-bottom:10px;
+  font-size:14px;
+  color:var(--muted2);
+}
+
+.previous-link{
+  display:block;
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  margin-bottom:8px;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+}
+
+.previous-link:hover{
+  background:rgba(255,255,255,0.05);
+}
+
+.info-note{
+  text-align:center;
+  margin-top:50px;
+  color:var(--muted);
 }
   </style>
 </head>
@@ -400,284 +472,72 @@ summary.bloc-summary::-webkit-details-marker{
     <div class="kicker">Mossos d'Esquadra</div>
     <div class="header-temari">
   <a href="triar-oposicio.html" class="btn-back">←</a>
-  <h1>TEMARI I PRÀCTICA PER TEMES</h1>
+  <h1>INFORMACIÓ OFICIAL</h1>
 </div>
     <div class="sub">
       Resums, esquemes, idees clau i bateries de preguntes. Preparat perquè puguis estudiar i practicar amb ordre.
     </div>
 
-    <div class="toolbar">
-      <input class="search" type="text" placeholder="Cerca un tema (ex: Constitució, Seguretat, Drets...)" disabled>
-      <a class="btn" href="simulacres.html">Simulacres</a>
-      <a class="btn secondary" href="#temes">Veure temes</a>
-    </div>
-
-    <div class="note">*El cercador s'activarà quan comencem a afegir temes i contingut.</div>
   </div>
 </header>
-
-<section class="section" id="temes">
+<section class="section">
   <div class="wrap">
-    <div class="kicker" style="margin-bottom:6px;">Temes</div>
-  
-    <details class="bloc" open>
-  <summary class="bloc-summary">
-    <span class="bloc-title">ÀMBIT A. Àmbit de coneixements de l’entorn</span>
-  </summary>
-  <div class="bloc-body">
-    <div class="grid">
-        <div class="card">
-        <span class="tag">Tema 01</span>
-        <h2>Història de Catalunya (part I)</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="mossos-tema01-resum.html">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
+
+    <h2 class="section-title">INFORMACIÓ OFICIAL</h2>
+
+    <div class="info-grid">
+
+      <!-- TEMARI OFICIAL -->
+      <div class="info-card">
+        <div class="info-card-top">
+          <div class="info-icon">📘</div>
+          <h3>Temari oficial vigent</h3>
         </div>
+
+        <p>
+          Consulta el temari oficial complet publicat per l'administració.
+        </p>
+
+        <a href="#" class="btn">
+          🔗 VEURE A LA PÀGINA OFICIAL
+        </a>
+
+        <a href="#" class="btn secondary">
+          ⬇ DESCARREGAR PDF
+        </a>
       </div>
 
-      <div class="card">
-        <span class="tag">Tema 02</span>
-        <h2>Història de Catalunya (part II)</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
+      <!-- CONVOCATÒRIA -->
+      <div class="info-card">
+        <div class="info-card-top">
+          <div class="info-icon">📄</div>
+          <h3>Convocatòria vigent</h3>
         </div>
-      </div>
 
-      <div class="card">
-        <span class="tag">Tema 03</span>
-        <h2>Història de la policia a Catalunya</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="mossos-tema01.resum.html">Resum</a>
-          <a class="mini secondary" href="mossos-tema01-esquema.html">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
+        <p>
+          Accedeix directament a la convocatòria actual.
+        </p>
 
-      <div class="card">
-        <span class="tag">Tema 04</span>
-        <h2>Àmbit sociolingüístic</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-      
-<div class="card">
-        <span class="tag">Tema 05</span>
-        <h2>Marc geogràfic de Catalunya</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
+        <a href="#" class="btn">
+          🔗 ANAR A LA CONVOCATÒRIA
+        </a>
 
-<div class="card">
-        <span class="tag">Tema 06</span>
-        <h2>Entorn social a Catalunya</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-<div class="card">
-        <span class="tag">Tema 07</span>
-        <h2>Les tecnologies de la informació en el segle XXII</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
+        <div class="previous">
+          <h4>Convocatòries anteriors</h4>
+          <a href="#" class="previous-link">Convocatòria 2023</a>
+          <a href="#" class="previous-link">Convocatòria 2022</a>
+          <a href="#" class="previous-link">Convocatòria 2021</a>
         </div>
       </div>
 
     </div>
-  </div>
-</details>
 
-<details class="bloc">
-  <summary class="bloc-summary">
-    <span class="bloc-title">ÀMBIT B. Àmbit Institucional</span>
-  </summary>
-  <div class="bloc-body">
-    <div class="grid">
-      <div class="card">
-        <span class="tag">Tema 01</span>
-        <h2>L'Estatut d'Autonomia de Catalunya (EAC)</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 02</span>
-        <h2>Les institucions polítiques de Catalunya</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 03</span>
-        <h2>L'ordenament jurídic de l'Estat</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 04</span>
-        <h2>Els drets humans i els drets constitucionals</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 05</span>
-        <h2>Les institucions polítiques de l'Estat</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 06</span>
-        <h2>Els òrgans jurisdiccionals. Poder Judicial i Tribunal Constitucional</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 07</span>
-        <h2>L'organització territorial de l'Estat</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 08</span>
-        <h2>La Unió Europea</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      
+    <div class="info-note">
+      El nostre sistema està estructurat exactament segons aquest temari oficial.
     </div>
-  </div>
-</details>
 
-<details class="bloc">
-  <summary class="bloc-summary">
-    <span class="bloc-title">ÀMBIT C. Àmbit de Seguretat i Policia</span>
-    
-  </summary>
-  <div class="bloc-body">
-    <div class="grid">
-      <div class="card">
-        <span class="tag">Tema 01</span>
-        <h2>Les competències de la Generalitat en matèria de seguretat</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 02</span>
-        <h2>El Departament d'Interior</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 03</span>
-        <h2>La coordinació policial</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 04</span>
-        <h2>El marc legal de la seguretat</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <span class="tag">Tema 05</span>
-        <h2>El Codi Deontològic Policial</h2>
-        <p>PENDIENTE.</p>
-        <div class="actions">
-          <a class="mini" href="#">Resum</a>
-          <a class="mini secondary" href="#">Esquema</a>
-          <a class="mini secondary" href="#">Preguntes</a>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</details>
-
-    <div class="grid">
-      
-    </div>
   </div>
 </section>
-
 <footer>
   © 2026 Acadèmia Codi APTE
 </footer>
