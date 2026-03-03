@@ -53,6 +53,65 @@
     .btn:hover{ background: var(--btnHover); }
     ul{ margin: 0; padding-left: 18px; color: var(--muted); }
     li{ margin: 10px 0; }
+    /* DESPLEGABLES (ACCORDION) */
+.acc{
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.item{
+  background: rgba(15,26,48,0.55);
+  border: 1px solid rgba(148,163,184,0.18);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.item summary{
+  cursor: pointer;
+  padding: 16px 18px;
+  font-weight: 800;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item summary::-webkit-details-marker{ display:none; }
+
+.item summary::after{
+  content: "＋";
+  font-size: 18px;
+  opacity: .9;
+}
+
+.item[open] summary::after{
+  content: "—";
+}
+
+.content{
+  padding: 0 18px 18px;
+  color: rgba(203,213,225,0.92);
+  line-height: 1.55;
+}
+
+.link{
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(76,110,245,0.25);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.link:hover{
+  background: rgba(76,110,245,0.35);
+}
   </style>
 </head>
 
@@ -66,12 +125,36 @@
       <h1>Informació oficial</h1>
       <p>Aquí posarem enllaços oficials i recursos útils per a l’oposició.</p>
 
-      <ul>
-        <li>Convocatòries i bases (enllaç oficial)</li>
-        <li>Temari oficial (enllaç oficial)</li>
-        <li>Requisits i proves (enllaç oficial)</li>
-      </ul>
+      <div class="acc">
+
+  <details class="item" open>
+    <summary>Convocatòria actual</summary>
+    <div class="content">
+      <p>Posa aquí el text de la convocatòria actual (any, termini, etc.).</p>
+      <a class="link" href="#" target="_blank" rel="noopener">Enllaç oficial de la convocatòria</a>
     </div>
-  </div>
-</body>
-</html>
+  </details>
+
+  <details class="item">
+    <summary>Temari oficial</summary>
+    <div class="content">
+      <p>Aquí pots enganxar el temari (o un resum) i també l’enllaç oficial.</p>
+      <a class="link" href="#" target="_blank" rel="noopener">Enllaç oficial del temari</a>
+    </div>
+  </details>
+
+  <details class="item">
+    <summary>Proves físiques</summary>
+    <div class="content">
+      <p>Aquí posaràs les proves que s’han de passar.</p>
+      <ul class="list">
+        <li>Cursa (ex: Course Navette / resistència)</li>
+        <li>Velocitat (ex: 50m)</li>
+        <li>Salt horitzontal</li>
+        <li>Press banca / força (si aplica)</li>
+      </ul>
+      <a class="link" href="#" target="_blank" rel="noopener">Enllaç oficial de les proves físiques</a>
+    </div>
+  </details>
+
+</div>
