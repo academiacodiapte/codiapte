@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Títol del Tema</title>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .btn-back {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    .section {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 18px;
+      margin-bottom: 25px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-left: 4px solid #2563eb;
+      padding-left: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .highlight {
+      background: rgba(37,99,235,0.15);
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      color: white;
+      background: #1e40af;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 30px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <a href="veure-temes.html" class="btn-back">← Tornar als temes</a>
+
+  <h1>TÍTOL DEL TEMA</h1>
+  <p class="subtitle">Àmbit corresponent · Resum estructurat</p>
+
+  <div class="section">
+    <h2>1. Context general</h2>
+    <ul>
+      <li>Idea principal</li>
+      <li>Marc temporal o normatiu</li>
+      <li>Situació històrica o institucional</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. Desenvolupament del tema</h2>
+    <ul>
+      <li>Punts clau</li>
+      <li>Conceptes importants</li>
+      <li>Definicions essencials</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Estructura o classificació</h2>
+    <ul>
+      <li>Elements principals</li>
+      <li>Òrgans o competències</li>
+      <li>Normativa relacionada</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Idees clau per memoritzar</h2>
+    <div class="highlight">
+      Frase corta y directa que resuma lo más importante del tema.
+    </div>
+  </div>
+
+  <div class="footer-nav">
+    <a href="#">← Tema anterior</a>
+    <a href="#">Tema siguiente →</a>
+  </div>
+
+</div>
+
+</body>
+</html>
