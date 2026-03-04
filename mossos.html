@@ -436,6 +436,26 @@ summary.bloc-summary::-webkit-details-marker{
   .info-cta .btn{
     min-width: auto;
   }
+  /* === FIX CLICKS === */
+.card, .bloc, .bloc-body { position: relative; }
+
+.card::before,
+.card::after,
+.bloc::before,
+.bloc::after{
+  pointer-events: none !important;
+}
+
+.actions{
+  position: relative;
+  z-index: 10;
+}
+
+.actions a,
+.mini{
+  position: relative;
+  z-index: 10;
+}
   </style>
 </head>
 
