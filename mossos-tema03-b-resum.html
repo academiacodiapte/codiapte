@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tema 01 · Resum · Mossos · Acadèmia Codi APTE</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel: rgba(15, 26, 48, 0.72);
+      --line: rgba(148,163,184,0.18);
+      --text:#ffffff;
+      --muted:#cbd5e1;
+      --muted2:#94a3b8;
+      --btn:#1e3a8a;
+      --btnHover:#2747a8;
+      --warn: rgba(220,38,38,0.18);
+      --ok: rgba(34,197,94,0.14);
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+    /* NAV */
+    nav{
+      position: fixed;
+      top:0; left:0; right:0;
+      z-index: 10;
+      background: rgba(0,0,0,0.28);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+    }
+    .nav-inner{
+      height: 64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .brand-badge{
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.14);
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(17,24,39,0.35);
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .links a{
+      color: rgba(203,213,225,0.92);
+      text-decoration:none;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .links a:hover{
+      background: rgba(255,255,255,0.10);
+      color: var(--text);
+    }
+
+    header{
+      padding-top: 96px;
+      padding-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before{
+      content:"";
+      position:absolute;
+      inset:-120px -40px auto -40px;
+      height: 280px;
+      background:
+        radial-gradient(700px 380px at 25% 40%, rgba(30,58,138,0.35), transparent 60%),
+        radial-gradient(700px 380px at 75% 40%, rgba(220,38,38,0.22), transparent 60%);
+      pointer-events:none;
+    }
+    .head-inner{ position: relative; }
+    .kicker{
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(203,213,225,0.85);
+      margin-bottom: 10px;
+    }
+    h1{
+      margin:0;
+      font-size: 36px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+    .sub{
+      margin-top: 10px;
+      color: rgba(203,213,225,0.92);
+      line-height: 1.6;
+      max-width: 860px;
+    }
+
+    .top-actions{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn{
+      display:inline-block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--btn);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .btn:hover{ background: var(--btnHover); }
+    .btn.secondary{
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(203,213,225,0.22);
+    }
+    .btn.secondary:hover{ background: rgba(255,255,255,0.10); }
+
+    .content{
+      padding: 18px 0 70px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(11,18,32,1) 0%, rgba(8,13,24,1) 100%);
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size: 20px;
+    }
+    .card p{
+      margin: 0;
+      color: rgba(203,213,225,0.92);
+      line-height: 1.6;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(203,213,225,0.92);
+      line-height: 1.7;
+    }
+
+    .pill{
+      display:inline-block;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(203,213,225,0.9);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 6px 10px;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 860px){
+      .grid-2{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .box-warn{
+      border: 1px solid rgba(220,38,38,0.28);
+      background: var(--warn);
+    }
+    .box-ok{
+      border: 1px solid rgba(34,197,94,0.22);
+      background: var(--ok);
+    }
+
+    .q{
+      margin: 10px 0 0;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.18);
+      background: rgba(0,0,0,0.18);
+    }
+    details summary{
+      cursor:pointer;
+      font-weight: 800;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: rgba(255,255,255,0.95);
+      outline:none;
+    }
+    details p{
+      margin: 10px 0 0;
+      color: rgba(203,213,225,0.92);
+      line-height: 1.6;
+    }
+
+    footer{
+      text-align:center;
+      color: rgba(148,163,184,0.95);
+      font-size: 13px;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(8,13,24,1);
+    }
+    code{
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 2px 6px;
+      border-radius: 8px;
+      color: rgba(255,255,255,0.95);
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-badge">APTE</span>
+      Acadèmia Codi APTE
+    </a>
+    <div class="links">
+      <a href="index.html">Inici</a>
+      <a href="mossos.html">Mossos</a>
+      <a href="policia-local.html">Policia Local</a>
+      <a href="simulacres.html">Simulacres</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap head-inner">
+    <div class="kicker">Mossos · Tema 01 · Resum</div>
+    <h1>Constitució Espanyola i estructura de l'Estat</h1>
+    <div class="sub">
+      <strong>Format D:</strong> resum + idees clau + errors típics + mini test.  
+      Omple els blocs amb el contingut oficial del temari i tindràs un tema impecable.
+    </div>
+
+    <div class="top-actions">
+      <a class="btn secondary" href="mossos.html">← Tornar a temes</a>
+      <a class="btn" href="simulacres.html">Simulacres</a>
+    </div>
+  </div>
+</header>
+
+<section class="content">
+  <div class="wrap">
+
+    <div class="card">
+      <span class="pill">Resum</span>
+      <p>
+        <em>[Aquí escriu el resum clar del tema (10-20 línies).]</em><br><br>
+        Exemple d’estructura:
+      </p>
+      <ul class="list">
+        <li><strong>Què és?</strong> Definició i finalitat.</li>
+        <li><strong>Parts principals</strong> (epígrafs) i què aporten.</li>
+        <li><strong>Conceptes que cauen a examen</strong> (definicions curtes).</li>
+      </ul>
+      <p style="margin-top:12px;">
+        Tip: si tens el temari oficial en PDF, me’l passes i t’ho redacto en format examen.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Idees clau (per memoritzar)</span>
+      <ul class="list">
+        <li><strong>Idea 1:</strong> [frase curta de 1 línia]</li>
+        <li><strong>Idea 2:</strong> [frase curta de 1 línia]</li>
+        <li><strong>Idea 3:</strong> [frase curta de 1 línia]</li>
+        <li><strong>Idea 4:</strong> [frase curta de 1 línia]</li>
+        <li><strong>Idea 5:</strong> [frase curta de 1 línia]</li>
+      </ul>
+    </div>
+
+    <div class="grid-2">
+      <div class="card box-warn">
+        <span class="pill">Errors típics d’examen</span>
+        <ul class="list">
+          <li>Confondre <code>[concepte A]</code> amb <code>[concepte B]</code>.</li>
+          <li>Barrejar <code>[article/part]</code> amb <code>[article/part]</code>.</li>
+          <li>Respondre “sembla correcta” en lloc d’anar a la definició exacta.</li>
+        </ul>
+      </div>
+
+      <div class="card box-ok">
+        <span class="pill">Com ho preguntaran</span>
+        <ul class="list">
+          <li>Definició directa (“Què és…?”).</li>
+          <li>Diferència entre conceptes (“A vs B”).</li>
+          <li>Ordre / estructura (“Quina part regula…?”).</li>
+          <li>Preguntes trampa amb paraules similars.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="pill">Mini test ràpid (exemple)</span>
+
+      <div class="q">
+        <details>
+          <summary>Pregunta 1 — (model)</summary>
+          <p><strong>Enunciat:</strong> [Escriu una pregunta tipus test.]</p>
+          <p><strong>Resposta:</strong> [A/B/C/D] — <em>[explicació curta]</em></p>
+        </details>
+      </div>
+
+      <div class="q">
+        <details>
+          <summary>Pregunta 2 — (model)</summary>
+          <p><strong>Enunciat:</strong> [Escriu una pregunta tipus test.]</p>
+          <p><strong>Resposta:</strong> [A/B/C/D] — <em>[explicació curta]</em></p>
+        </details>
+      </div>
+
+      <div class="q">
+        <details>
+          <summary>Pregunta 3 — (model)</summary>
+          <p><strong>Enunciat:</strong> [Escriu una pregunta tipus test.]</p>
+          <p><strong>Resposta:</strong> [A/B/C/D] — <em>[explicació curta]</em></p>
+        </details>
+      </div>
+
+      <p style="margin-top:12px;color:rgba(148,163,184,0.95);">
+        Quan vulguis, fem una pàgina específica de “Preguntes” amb 30-50 preguntes i correcció.
+      </p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Següent pas</span>
+      <p>
+        1) Crearem <strong>Esquema</strong> del Tema 01 (1 pàgina visual).<br>
+        2) Crearem <strong>Preguntes</strong> del Tema 01 (bateria per temes).<br>
+        3) Enllaçarem els botons de <code>mossos.html</code> cap aquí.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Acadèmia Codi APTE
+</footer>
+
+</body>
+</html>
