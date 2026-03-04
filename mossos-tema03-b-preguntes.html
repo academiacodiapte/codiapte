@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tema 01 · Preguntes · Acadèmia Codi APTE</title>
+  <style>
+    :root{
+      --bg:#0b1220; --panel: rgba(15,26,48,0.72); --line: rgba(148,163,184,0.18);
+      --text:#fff; --muted: rgba(203,213,225,0.92); --btn:#1e3a8a; --btnHover:#2747a8;
+    }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); }
+    .wrap{ max-width:1100px; margin:0 auto; padding:24px 20px; }
+    .card{ background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:22px; }
+    h1{ margin:0 0 8px; font-size:30px; letter-spacing:.5px; }
+    p{ margin:0 0 16px; color:var(--muted); line-height:1.55; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px; border-radius:12px; background:var(--btn);
+      border:1px solid rgba(255,255,255,0.16); color:var(--text);
+      text-decoration:none; font-weight:800; letter-spacing:.5px; text-transform:uppercase;
+      font-size:12px;
+    }
+    .btn:hover{ background:var(--btnHover); }
+    .secondary{ background:rgba(0,0,0,.25); }
+    .secondary:hover{ background:rgba(255,255,255,.10); }
+
+    .q{
+      background:rgba(15,26,48,0.55);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      margin-top:12px;
+    }
+    .q h3{ margin:0 0 10px; font-size:16px; }
+    .q label{ display:block; margin:8px 0; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+  <a class="btn secondary" href="mossos.html">← Tornar als temes</a>
+  <div style="height:14px"></div>
+
+    <div class="card">
+      <h1>Tema 01 · Preguntes</h1>
+      <p>Bateria de preguntes del tema. (Després hi posarem totes les preguntes reals.)</p>
+
+      <div class="q">
+        <h3>1) Exemple de pregunta</h3>
+        <label><input type="radio" name="q1"> Opció A</label>
+        <label><input type="radio" name="q1"> Opció B</label>
+        <label><input type="radio" name="q1"> Opció C</label>
+        <label><input type="radio" name="q1"> Opció D</label>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn secondary" href="./mossos-tema01-resum.html">Veure resum</a>
+        <a class="btn secondary" href="./mossos-tema01-esquema.html">Veure esquema</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
